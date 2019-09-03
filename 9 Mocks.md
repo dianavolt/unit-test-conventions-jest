@@ -76,3 +76,40 @@ describe('ComponentName)', () => {
         expect(mockApiData.sendEmail).toHaveBeenCalledWith(email)
     })
 ```
+
+#### 'toHaveBeenCalled___' function invocation
+Use 'toHaveBeenCalled()' to test if the function was called without arguments or with redundant arguments.
+'toHaveBeenCalledWith()' should be used for cases with arguments. It shouldn't be called without arguments.
+'toHaveBeenCalledTimes()' can be used to check the number of times a function was called
+
+```javascript
+import testFunction from '../testFunction'
+import emailFunc from '../emailFunc'
+
+jest.mock('../emailFunc')
+
+describe('testFunction', () => {
+    let spyConsole
+    let wrongArg
+    let correctArg
+
+    beforeEach(() => {
+        wrongArg = 'wrong arg'
+        correctArg = 'correct arg'
+        spyConsole = jest.spyOn(console, 'error')
+    })
+
+    it('should invoke emailFunc()', () => {
+        testFunction(correctArg)
+
+        expect(emailFunc).toHaveBeenCalled()
+    })
+
+    it('should show console errors if testFunction was invoked with a wrong argument', () => {
+        testFunction(wrongArg)
+
+        expect(spyConsole).toHaveBeenCalledWith('Error: message')
+    })
+})
+
+```
