@@ -87,3 +87,44 @@ describe('ComponentName', () => {
     })
 })
 ```
+
+#### Use only one 'expect' per 'it'
+```javascript
+import testFunction from '../testFunction'
+import emailFunc from '../emailFunc'
+
+jest.mock('../emailFunc')
+
+describe('testFunction', () => {
+    let spyConsole
+    let wrongArg
+    let correctArg
+
+    beforeEach(() => {
+        wrongArg = 'wrong arg'
+        correctArg = 'correct arg'
+        spyConsole = jest.spyOn(console, 'error')
+    })
+
+    // WRONG
+    it('should invoke emailFunc() and return false', () => {
+        const result = testFunction(wrongArg)
+
+        expect(emailFunc).toHaveBeenCalled()
+        expect(result).toBeFalse()
+    })
+
+    // CORRECT
+    it('should invoke emailFunc()', () => {
+        testFunction(correctArg)
+
+        expect(emailFunc).toHaveBeenCalled()
+    })
+
+    it('should invoke emailFunc() and return false', () => {
+        const result = testFunction(wrongArg)
+
+        expect(result).toBeFalse()
+    })
+})
+```

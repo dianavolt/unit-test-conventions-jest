@@ -113,3 +113,18 @@ describe('testFunction', () => {
 })
 
 ```
+
+#### Use 'jest.resetAllMocks()' and 'jest.clearAllMocks()' in 'afterEach()' block
+```javascript
+describe('ComponentName)', () => {
+    let spy
+
+    beforeEach(() => {
+        spy = jest.spyOn(console, 'error')
+    })
+
+    afterEach(() => {
+        jest.clearAllMocks()
+    })
+})
+```
