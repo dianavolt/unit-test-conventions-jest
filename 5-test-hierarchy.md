@@ -1,9 +1,9 @@
 # Test Hierarchy
 
 #### Group test cases in 'describe' blocks
-This will provide a clean hierarchy of cases.
-Nested 'describe' description should start with 'when'.
-'it' descriptions should start with 'should'
+* Provides a clean hierarchy of cases.
+* Nested 'describe' description should start with 'when'.
+* 'it' descriptions should start with 'should'
 
 ```javascript
 describe('ComponentName', () => {

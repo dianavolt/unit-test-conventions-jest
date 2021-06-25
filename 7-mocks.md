@@ -22,7 +22,7 @@ describe('ComponentName', () => {
 
 #### Manual mocks for hooks and services
 * [Manual mocks](https://jestjs.io/docs/manual-mocks) can export a function that can be used to mock returned value for shared hooks or services.
-* Mocks can be stored in separate file with the same filename as the component name in the __mocks__ folder
+* Mocks can be stored in separate file with the same filename as the component name in the \__mocks__ folder
 
 ```javascript
 //  [Mock file]: __mocks__/useDataApi.js

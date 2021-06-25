@@ -14,7 +14,7 @@ describe('StyledComponent', () => {
 
 #### Perform shallow render on React components
 When possible use [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) render instead of snapshot testing on React components. 
-Shallow render checks if certain elements exist or if their value is affected by passing configuration prop.
+Enzyme's shallow render checks if certain elements exist or if their value is affected by passing configuration prop.
 
 ```javascript
 // [styled component in a div]
